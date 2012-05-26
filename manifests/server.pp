@@ -42,4 +42,9 @@ class mysql::server (
     provider => $service_provider,
   }
 
+  puppi::check { 'MYSQL-Proc-Check':
+    command => "check_procs -c 1:1 -C mysqld",
+    hostwide => 'yes',
+  }
+
 }
